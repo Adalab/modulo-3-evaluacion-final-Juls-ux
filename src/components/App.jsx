@@ -14,15 +14,12 @@ function App() {
   //HOOK
   useEffect (() => {
     fetch('https://owen-wilson-wow-api.onrender.com/wows/random?results=50')
-    .then( response => response.json)
+    .then( response => response.json())
     .then( dataJson => {
       setPeliculas(dataJson);
     });
   
   }, [])
-
-
-
   console.log(peliculas)
 
 
@@ -53,15 +50,12 @@ function App() {
 
         </section>
         <div className='listado'>
-
           {peliculas.length === 0 ? (
             <p>No hay resultados 😥 </p>
           ) : (
             <PeliculasList peliculas={peliculas}></PeliculasList>)
 
           }
-
-
         </div>
 
 

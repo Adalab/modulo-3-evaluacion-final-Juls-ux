@@ -1,7 +1,7 @@
 
 import PropTypes from 'prop-types';
 
-function PeliculasItem(onePeli){
+function PeliculasItem({onePeli}){
     return(
         <>
       <img className="listado__img" src={onePeli.poster} alt="" />
