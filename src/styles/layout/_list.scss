@@ -1,0 +1,41 @@
+.listado,
+{
+margin-inline: 30px;
+&__h3{
+    font-size: 28px;
+    margin-block: 14px;
+
+}
+&__h4{
+    font-size: 18px;
+    margin-block: 14px;
+    max-width: 400px;
+    color:    rgb(90, 176, 133);;
+}
+&__paragraphYear{
+    font-weight: 600;
+}
+&__ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+    list-style: none;
+    padding-inline: 30px;
+    align-items: center;
+    
+
+
+}
+
+&__li {
+    margin-block: 30px;
+    margin-inline: 20px;
+
+}
+
+&__img {
+    width: 300px;
+}
+}

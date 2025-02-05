@@ -40,12 +40,13 @@ function App() {
 
         <div className='listado'>
           <ul className='listado__ul'>
-           {peliculas.map( (onePeli) =>  <li>
-              <img src={onePeli.poster} alt="" />
-              <h3>{onePeli.movie}</h3>
-              <p>{onePeli.full_line}</p>
-              <p>{onePeli.timestamp}</p>
-              <p>{onePeli.year}</p>
+           {peliculas.map( (onePeli) =>  <li className='listado__li'>
+              <img className="listado__img" src={onePeli.poster} alt="" />
+              <h3 className='listado__h3'>{onePeli.movie}</h3>
+              <h4 className='listado__h4'>{onePeli.full_line}</h4>
+              <p className='listado__paragraphYear'>{onePeli.year}</p>
+              <p className='listado__paragraph'>{onePeli.timestamp}</p>
+            
             </li>) } 
            
           </ul>
