@@ -9,7 +9,7 @@ function Header ()
         <h1 className='header__h1'>Owen Wilson</h1>
         <p className='header__wow'> WOW</p>
 
-        <p className='header__paragraph'>Busca la pelicula de Owen Wilson donde m'as veces dice "Wow". Puedes filtrar tanto por película como por año 😉</p>
+        <p className='header__paragraph'>Busca la pelicula de Owen Wilson donde más veces dice "Wow". Puedes filtrar tanto por película como por año 😉</p>
 
       </header>
 

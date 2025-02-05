@@ -12,6 +12,28 @@ function App() {
   //VARIABLES DE ESTADO
 
   const [peliculas, setPeliculas] = useState( [] );
+  const [filterMovie, setFilterMovie] =useState('');
+  const [filteryear, setFilteryear]= useState('');
+
+  //SECCION EVENTOS
+
+  const handleFilterMovie = (ev) => {
+    ev.preventDefault();
+    setFilterMovie(ev.target.value);
+  };
+  
+  /*const handleFilterYear = (ev) => {
+    ev.preventDefault();
+    setFilteryear(ev.target.value);
+  };*/
+  
+
+  const filteredMovies = peliculas.filter(pelicula =>
+    pelicula.movie.toLowerCase().includes(filterMovie.toLowerCase())
+  );
+  
+  //const filteredYears = peliculas.filter((pelicula) =>pelicula.year.toString().includes(filteryear));
+  
 
   //HOOK
   useEffect (() => {
@@ -22,8 +44,6 @@ function App() {
     });
   
   }, [])
-  console.log(peliculas)
-
 
   return (
     <div>
@@ -31,7 +51,7 @@ function App() {
 
       <main>
         <section className='header__filter'>
-          <Filter></Filter>
+        <Filter handleFilterMovie={handleFilterMovie} />
 
 
         </section>
@@ -39,7 +59,7 @@ function App() {
           {peliculas.length === 0 ? (
             <p>No hay resultados 😥 </p>
           ) : (
-            <PeliculasList peliculas={peliculas}></PeliculasList>)
+            <PeliculasList peliculas={filteredMovies}></PeliculasList>)
 
           }
         </div>
@@ -49,5 +69,6 @@ function App() {
     </div>
   )
 }
+
 
 export default App;
