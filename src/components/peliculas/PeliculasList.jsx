@@ -2,18 +2,16 @@
 import PropTypes from 'prop-types';
 import PeliculasItem from './peliculasItem';
 
-function PeliculasList({peliculas}) {
+function PeliculasList({ peliculas }) {
     return (
         <>
-        <div className='listado'>
-            <ul className='listado__ul'>
-                    {peliculas.map((onePeli) => <li key={onePeli.timestamp} className='listado__li'>
-                        <PeliculasItem onePeli={onePeli}></PeliculasItem>
+            <ul className='listado__ul'> {peliculas.map((onePeli) =>
+                <li key={onePeli.timestamp} className='listado__li'>
+                    <PeliculasItem onePeli={onePeli}></PeliculasItem>
 
+                </li>)}
+            </ul>
 
-                    </li>)}
-                </ul>
-            </div>
         </>
 
     )

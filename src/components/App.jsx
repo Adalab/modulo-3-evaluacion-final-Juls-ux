@@ -1,8 +1,7 @@
 import '../styles/App.scss';
 
-import dataJson from '../data/peliculas.json';
 import logoOwen from '../images/logo-owen.png'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import PeliculasList from './peliculas/peliculasList';
 
@@ -10,8 +9,22 @@ function App() {
 
   //VARIABLES DE ESTADO
 
-  const[peliculas, serPeliculas] = useState(dataJson);
-  console.log(peliculas);
+  const [peliculas, setPeliculas] = useState( [] );
+
+  //HOOK
+  useEffect (() => {
+    fetch('https://owen-wilson-wow-api.onrender.com/wows/random?results=50')
+    .then( response => response.json)
+    .then( dataJson => {
+      setPeliculas(dataJson);
+    });
+  
+  }, [])
+
+
+
+  console.log(peliculas)
+
 
   return (
     <div>
@@ -25,29 +38,34 @@ function App() {
       </header>
 
       <main>
-      <section className='header__filter'>
+        <section className='header__filter'>
 
-<ul className='header__ul'>
-    <li className='header__li'>
-        <label className="header__label" htmlFor="">Movie</label>
-        <input className="header__input" type="text" />
-    </li>
+          <ul className='header__ul'>
+            <li className='header__li'>
+              <label className="header__label" htmlFor="">Movie</label>
+              <input className="header__input" type="text" />
+            </li>
 
-    <li className='header__li'> <label className="header__label" htmlFor="">Year</label>
-        <input className="header__input" type="text" />
-    </li>
-</ul>
+            <li className='header__li'> <label className="header__label" htmlFor="">Year</label>
+              <input className="header__input" type="text" />
+            </li>
+          </ul>
 
-</section>
-        <PeliculasList peliculas={peliculas}>
+        </section>
+        <div className='listado'>
 
-        </PeliculasList>
+          {peliculas.length === 0 ? (
+            <p>No hay resultados 😥 </p>
+          ) : (
+            <PeliculasList peliculas={peliculas}></PeliculasList>)
+
+          }
+
+
+        </div>
+
 
       </main>
-
-
-
-
     </div>
   )
 }
