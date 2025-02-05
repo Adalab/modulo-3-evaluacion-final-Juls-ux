@@ -3,7 +3,18 @@ import '../styles/App.scss';
 function App() {
   return (
     <div>
-      Escribe aquí tu HTML...
+      <h1>Owen Wilson "Wow"</h1>   
+      <section>
+
+        <label htmlFor="">Movie</label>
+        <input type="text" />
+
+
+        <label htmlFor="">Year</label>
+        <input type="text" />
+      </section>
+
+      
     </div>
   )
 }
