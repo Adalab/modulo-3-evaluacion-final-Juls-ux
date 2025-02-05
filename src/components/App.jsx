@@ -1,8 +1,16 @@
 import '../styles/App.scss';
+import dataJson from '../data/peliculas.json';
 import logoOwen from '../images/logo-owen.png'
+import { useState } from 'react';
 
 
 function App() {
+
+  //VARIABLES DE ESTADO
+
+  const[peliculas, serPeliculas] = useState(dataJson);
+  console.log(peliculas);
+
   return (
     <div>
       <header className='header'>
@@ -32,12 +40,14 @@ function App() {
 
         <div className='listado'>
           <ul className='listado__ul'>
-            <li>
-              <img src="" alt="" />
-              <h3></h3>
-              <p></p>
-              <p></p>
-            </li>
+           {peliculas.map( (onePeli) =>  <li>
+              <img src={onePeli.poster} alt="" />
+              <h3>{onePeli.movie}</h3>
+              <p>{onePeli.full_line}</p>
+              <p>{onePeli.timestamp}</p>
+              <p>{onePeli.year}</p>
+            </li>) } 
+           
           </ul>
 
 
