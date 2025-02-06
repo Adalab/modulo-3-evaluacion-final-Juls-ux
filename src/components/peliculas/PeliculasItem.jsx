@@ -14,9 +14,7 @@ function PeliculasItem({ onePeli }) {
                 <p className='listado__paragraph'>{onePeli.timestamp}</p>
             </>
         </Link>
-
     )
-
 }
 
 PeliculasItem.propTypes = {

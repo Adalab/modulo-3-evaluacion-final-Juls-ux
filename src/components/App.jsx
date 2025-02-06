@@ -54,12 +54,10 @@ const findPeli= (name)=>{
 
       <main>
         <Routes>
-          <Route index element ={<Home peliculas={filteredMovies} ></Home>}></Route>
-          <Route path="detail/:name" element={<MovieSceneDetail findPeli= {findPeli}/>}></Route>
+        <Route index element={<Home peliculas={filteredMovies} handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} />} />
+        <Route path="detail/:name" element={<MovieSceneDetail peliculas={peliculas} />} />
+
         </Routes>
-
-
-  
 
       </main>
     </div>
