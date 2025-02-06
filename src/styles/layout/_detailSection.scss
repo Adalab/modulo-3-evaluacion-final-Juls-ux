@@ -1,0 +1,28 @@
+.detailSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-block: 50px;
+    margin-inline: 30px;
+    background-color: rgba(101, 221, 161, 0.168);
+    margin-inline: 50p0x;
+
+    &__h2{
+        margin-block: 30px;
+    font-size: 40px;    }
+
+    &__btn {
+        margin-block: 30px;
+        font-weight: 800;
+        font-size: 20px;
+        color: black;
+        text-decoration: none;
+        padding-inline: 25px;
+        padding-block:8px;
+        background-color:  rgba(101, 221, 161, 0.33);
+        border: solid 1px rgb(101, 221, 161);
+        border-radius: 10px;
+    }
+}
