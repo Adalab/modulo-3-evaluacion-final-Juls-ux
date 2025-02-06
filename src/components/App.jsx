@@ -22,28 +22,27 @@ function App() {
     setFilterMovie(ev.target.value);
   };
   
-  /*const handleFilterYear = (ev) => {
+  const handleFilterYear = (ev) => {
     ev.preventDefault();
     setFilteryear(ev.target.value);
-  };*/
+  };
   
 
   const filteredMovies = peliculas.filter(pelicula =>
-    pelicula.movie.toLowerCase().includes(filterMovie.toLowerCase())
+    pelicula.movie.toLowerCase().includes(filterMovie.toLowerCase()) &&
+    (filteryear === '' || pelicula.year.toString() === filteryear)
   );
-  
-  //const filteredYears = peliculas.filter((pelicula) =>pelicula.year.toString().includes(filteryear));
   
 
   //HOOK
   useEffect (() => {
-    fetch('https://owen-wilson-wow-api.onrender.com/wows/random?results=50')
+    fetch('https://owen-wilson-wow-api.onrender.com/wows/random?results=' +filteryear)
     .then( response => response.json())
     .then( dataJson => {
       setPeliculas(dataJson);
     });
   
-  }, [])
+  }, [filteryear])
 
   return (
     <div>
@@ -51,7 +50,7 @@ function App() {
 
       <main>
         <section className='header__filter'>
-        <Filter handleFilterMovie={handleFilterMovie} />
+        <Filter handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} />
 
 
         </section>
