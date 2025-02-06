@@ -1,11 +1,13 @@
 import '../styles/App.scss';
-
+import { Routes, Route } from 'react-router';
 import logoOwen from '../images/logo-owen.png'
 import { useState, useEffect } from 'react';
-
+import { Link } from 'react-router'
+import Home from './pages/home';
 import PeliculasList from './peliculas/peliculasList';
 import Header from './Header';
 import Filter from './Filter';
+import MovieSceneDetail from './pages/MovieSceneDetail';
 
 function App() {
 
@@ -28,6 +30,10 @@ function App() {
     setFilteryear(ev.target.value);
   };
   
+const findPeli= (name)=>{
+  return peliculas.find(onePeli=>onePeli.name===name);
+}
+
 
   const filteredMovies = peliculas.filter(pelicula =>
     pelicula.movie.toLowerCase().includes(filterMovie.toLowerCase()) &&
@@ -47,20 +53,13 @@ function App() {
      <Header></Header>
 
       <main>
-        <section className='header__filter'>
-        <Filter handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} />
+        <Routes>
+          <Route index element ={<Home peliculas={filteredMovies} ></Home>}></Route>
+          <Route path="detail/:name" element={<MovieSceneDetail findPeli= {findPeli}/>}></Route>
+        </Routes>
 
 
-        </section>
-        <div className='listado'>
-          {peliculas.length === 0 ? (
-            <p>No hay resultados 😥 </p>
-          ) : (
-            <PeliculasList peliculas={filteredMovies}></PeliculasList>)
-
-          }
-        </div>
-
+  
 
       </main>
     </div>
