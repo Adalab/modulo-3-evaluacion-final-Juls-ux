@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router';
 
 function MovieSceneDetail({ peliculas }) {
     const params = useParams();
-    const pelicula = peliculas.find(peli => peli.movie === params.name);
+    const pelicula = peliculas.find(pelicula => pelicula.movie === params.name);
 
     if (!pelicula) {
         return <p>No se encontró la película 😥</p>;
