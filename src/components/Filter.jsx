@@ -1,4 +1,5 @@
-function Filter({ handleFilterMovie, handleFilterYear }) {
+function Filter({ handleFilterMovie, handleFilterYear, years }) {
+    
     return (
       <ul className="header__ul">
         <li className="header__li">

@@ -14,6 +14,7 @@ function App() {
   const [peliculas, setPeliculas] = useState( [] );
   const [filterMovie, setFilterMovie] =useState('');
   const [filteryear, setFilteryear]= useState('');
+  const years = [...new Set(peliculas.map(pelicula => pelicula.year.toString()))];
 
   //SECCION EVENTOS
 
@@ -35,14 +36,11 @@ function App() {
   
 
   //HOOK
-  useEffect (() => {
-    fetch('https://owen-wilson-wow-api.onrender.com/wows/random?results=' +filteryear)
-    .then( response => response.json())
-    .then( dataJson => {
-      setPeliculas(dataJson);
-    });
-  
-  }, [filteryear])
+  useEffect(() => {
+    fetch('https://owen-wilson-wow-api.onrender.com/wows/random?results=50')
+      .then(response => response.json())
+      .then(dataJson => setPeliculas(dataJson));
+  }, []);
 
   return (
     <div>
