@@ -1,4 +1,4 @@
-function Filter({ handleFilterMovie, handleFilterYear, years }) {
+function Filter({ handleFilterMovie, handleFilterYear, years ,handleFilterRemove}) {
     
     return (
       <ul className="header__ul">
@@ -16,6 +16,9 @@ function Filter({ handleFilterMovie, handleFilterYear, years }) {
           ))}
         </select>
         </li>
+        <button className="btnDelet" onClick={handleFilterRemove}> Borrar filtros</button>
+
+        
       </ul>
     );
   }

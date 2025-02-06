@@ -19,7 +19,7 @@ function MovieSceneDetail({ findPeli }) {
             <p className='listado__paragraphYear'>Director/a: {pelicula.director}</p>
             <p className='listado__paragraphYear'>{pelicula.year}</p>
             <p className='listado__paragraph'>{pelicula.timestamp}</p>
-            <a className='listado__link-paragraph' href={pelicula.audio}>🎧</a>
+            <a className='listado__link-paragraph' href={pelicula.audio} target="_blank" rel="noopener noreferrer">🎧</a>
 
             <Link  className='detailSection__btn' to="/">Volver</Link>
         </section>

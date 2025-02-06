@@ -16,6 +16,7 @@ function App() {
   const [peliculas, setPeliculas] = useState( [] );
   const [filterMovie, setFilterMovie] =useState('');
   const [filteryear, setFilteryear]= useState('');
+  
   const years = [...new Set(peliculas.map(pelicula => pelicula.year.toString()))];
 
   //SECCION EVENTOS
@@ -29,6 +30,14 @@ function App() {
     ev.preventDefault();
     setFilteryear(ev.target.value);
   };
+  
+  const handleFilterRemove = (ev) =>{
+    console.log('borrar filtros')
+    ev.preventDefault();
+    setFilterMovie('');
+    setFilteryear('');
+    
+  }
   
 const findPeli= (movie)=>{
   return peliculas.find(onePeli=>onePeli.movie === movie);
@@ -54,7 +63,7 @@ const findPeli= (movie)=>{
 
       <main>
         <Routes>
-        <Route index element={<Home peliculas={filteredMovies} handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} />} />
+        <Route index element={<Home peliculas={filteredMovies} handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} handleFilterRemove={handleFilterRemove}/>} />
         <Route path="detail/:movie" element={<MovieSceneDetail findPeli={findPeli} />} />
 
         </Routes>
