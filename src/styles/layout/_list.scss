@@ -1,4 +1,5 @@
 .listado {
+   
 margin-inline: 30px;
 &__h3{
     font-size: 28px;
@@ -45,10 +46,11 @@ margin-inline: 30px;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 60px;
+    font-size: 40px;
 
 }
 &__img-noResult{
+    margin-block: 40px;
     border-radius: 50%;
     width: 300px;
 

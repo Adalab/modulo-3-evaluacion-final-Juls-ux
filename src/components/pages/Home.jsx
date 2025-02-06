@@ -1,6 +1,6 @@
 
 import owenSoprendido from '../../images/owen-sorprendido.jpg'
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 import PeliculasList from "../peliculas/PeliculasList";
 
 import Filter from '../Filter';

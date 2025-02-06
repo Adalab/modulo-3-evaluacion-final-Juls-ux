@@ -30,8 +30,8 @@ function App() {
     setFilteryear(ev.target.value);
   };
   
-const findPeli= (name)=>{
-  return peliculas.find(onePeli=>onePeli.name===name);
+const findPeli= (movie)=>{
+  return peliculas.find(onePeli=>onePeli.movie === movie);
 }
 
 
@@ -55,7 +55,7 @@ const findPeli= (name)=>{
       <main>
         <Routes>
         <Route index element={<Home peliculas={filteredMovies} handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} />} />
-        <Route path="detail/:name" element={<MovieSceneDetail peliculas={peliculas} />} />
+        <Route path="detail/:movie" element={<MovieSceneDetail findPeli={findPeli} />} />
 
         </Routes>
 

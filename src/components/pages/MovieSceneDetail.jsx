@@ -1,16 +1,16 @@
 import { useParams, Link } from 'react-router';
+import owenSoprendido from '../../images/owen-sorprendido.jpg'
 import { BrowserRouter as Router, Routes, Route } from 'react-router';
 
 
-function MovieSceneDetail({ peliculas }) {
+function MovieSceneDetail({ findPeli }) {
     const params = useParams();
-    const pelicula = peliculas.find(pelicula => pelicula.movie === params.name);
+    const pelicula = findPeli(params.movie);
 
     if (!pelicula) {
-        return <p>No se encontró la película 😥</p>;
-    }
-
-    return (
+        return <p className='listado__no-result'>No se han encontrado resultados 😥 
+                    <img className="listado__img-noResult" src={owenSoprendido} alt="" /></p>
+    }return (
         <section>
             <h2>Información de {pelicula.movie}</h2>
             <img className="listado__img" src={pelicula.poster} alt={pelicula.movie} />
