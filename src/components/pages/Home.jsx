@@ -5,12 +5,12 @@ import PeliculasList from "../peliculas/PeliculasList";
 
 import Filter from '../Filter';
 
-function Home({ peliculas, handleFilterMovie, handleFilterYear, years }) {
+function Home({ peliculas, handleFilterMovie, handleFilterYear, years, handleFilterRemove }) {
     
     return (
         <>
             <section className='header__filter'>
-                <Filter handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} />
+                <Filter handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} handleFilterRemove={handleFilterRemove} />
 
 
             </section>

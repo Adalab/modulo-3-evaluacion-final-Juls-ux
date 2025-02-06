@@ -32,11 +32,11 @@ function App() {
   };
   
   const handleFilterRemove = (ev) =>{
-    console.log('borrar filtros')
+    
     ev.preventDefault();
     setFilterMovie('');
     setFilteryear('');
-    
+    console.log('borrar filtros')
   }
   
 const findPeli= (movie)=>{
