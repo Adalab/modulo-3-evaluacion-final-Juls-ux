@@ -6,6 +6,7 @@ import PeliculasList from "../peliculas/PeliculasList";
 import Filter from '../Filter';
 
 function Home({ peliculas, handleFilterMovie, handleFilterYear, years }) {
+    
     return (
         <>
             <section className='header__filter'>
@@ -15,7 +16,9 @@ function Home({ peliculas, handleFilterMovie, handleFilterYear, years }) {
             </section>
             <div className='listado'>
                 {peliculas.length === 0 ? (
-                    <p>No hay resultados 😥 </p>
+                    <p className='listado__no-result'>No hay resultados 😥 </p>
+                    
+
                 ) : (
                     <PeliculasList peliculas={peliculas}></PeliculasList>)
 
