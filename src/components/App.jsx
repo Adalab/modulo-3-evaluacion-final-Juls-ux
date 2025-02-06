@@ -34,9 +34,10 @@ function App() {
   const handleFilterRemove = (ev) =>{
     
     ev.preventDefault();
+
     setFilterMovie('');
     setFilteryear('');
-    console.log('borrar filtros')
+    
   }
   
 const findPeli= (movie)=>{
@@ -63,7 +64,7 @@ const findPeli= (movie)=>{
 
       <main>
         <Routes>
-        <Route index element={<Home peliculas={filteredMovies} handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} handleFilterRemove={handleFilterRemove}/>} />
+        <Route index element={<Home peliculas={filteredMovies} handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} handleFilterRemove={handleFilterRemove} filterMovie={filterMovie} filteryear={filteryear}/>} />
         <Route path="detail/:movie" element={<MovieSceneDetail findPeli={findPeli} />} />
 
         </Routes>
