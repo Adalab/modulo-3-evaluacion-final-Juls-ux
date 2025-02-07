@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router';
 function MovieSceneDetail({ findPeli }) {
     const params = useParams();
     const pelicula = findPeli(params.movie);
+    const phrase = findPeli(params.full_line)
 
     if (!pelicula) {
         return <p className='listado__no-result'>No se han encontrado resultados 😥 

@@ -45,18 +45,20 @@ const findPeli= (movie)=>{
 }
 
 
-  const filteredMovies = peliculas.filter(pelicula =>
-    pelicula.movie.toLowerCase().includes(filterMovie.toLowerCase()) &&
-    (filteryear === '' || pelicula.year.toString() === filteryear)
-  );
-  
+
+const filteredMovies = peliculas.filter(pelicula =>
+  pelicula.movie.toLowerCase().includes(filterMovie.toLowerCase()) &&
+  (filteryear === '' || pelicula.year.toString() === filteryear)
+);
 
   //HOOK
   useEffect(() => {
-    fetch('https://owen-wilson-wow-api.onrender.com/wows/random?results=50')
+    fetch(`https://owen-wilson-wow-api.onrender.com/wows/random?results=50${filterMovie}`)
       .then(response => response.json())
-      .then(dataJson => setPeliculas(dataJson));
-  }, []);
+      .then(dataJson => {
+        setPeliculas(dataJson);
+  }); 
+},[filterMovie]);
 
   return (
     <div>
