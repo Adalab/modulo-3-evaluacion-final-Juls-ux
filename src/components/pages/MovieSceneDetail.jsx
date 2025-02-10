@@ -4,16 +4,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router';
 
 
 function MovieSceneDetail({ findPeli }) {
-    const params = useParams();
-    const pelicula = findPeli(params.movie);
-    const phrase = findPeli(params.full_line)
+    const { movie, timestamp } = useParams();
+    const pelicula = findPeli(decodeURIComponent(movie), decodeURIComponent(timestamp));
+
 
     if (!pelicula) {
         return <p className='listado__no-result'>No se han encontrado resultados 😥 
                     <img className="listado__img-noResult" src={owenSoprendido} alt="" /></p>
     }return (
         <section className='detailSection'>
-            <h2 className='detailSection__h2'>Información de {pelicula.movie}</h2>
+            <h2 className='detailSection__h2'>Información de {pelicula.movie} </h2>
             <img className="listado__img" src={pelicula.poster} alt={pelicula.movie} />
             <h3 className='listado__h3'>{pelicula.movie}</h3>
             <h4 className='listado__h4'>{pelicula.full_line}</h4>

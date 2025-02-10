@@ -1,5 +1,5 @@
 import '../styles/App.scss';
-import { Routes, Route } from 'react-router';
+import { Routes, Route,  } from 'react-router';
 import logoOwen from '../images/logo-owen.png'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router'
@@ -8,6 +8,7 @@ import PeliculasList from './peliculas/peliculasList';
 import Header from './Header';
 import Filter from './Filter';
 import MovieSceneDetail from './pages/MovieSceneDetail';
+
 
 function App() {
 
@@ -40,8 +41,8 @@ function App() {
     
   }
   
-const findPeli= (movie)=>{
-  return peliculas.find(onePeli=>onePeli.movie === movie);
+const findPeli= (movie, timestamp)=>{
+  return peliculas.find(onePeli => onePeli.movie === movie && onePeli.timestamp === timestamp);
 }
 
 
@@ -67,7 +68,7 @@ const filteredMovies = peliculas.filter(pelicula =>
       <main>
         <Routes>
         <Route index element={<Home peliculas={filteredMovies} handleFilterMovie={handleFilterMovie} handleFilterYear={handleFilterYear} years={years} handleFilterRemove={handleFilterRemove} filterMovie={filterMovie} filteryear={filteryear}/>} />
-        <Route path="detail/:movie" element={<MovieSceneDetail findPeli={findPeli} />} />
+        <Route path="detail/:movie/:timestamp" element={<MovieSceneDetail findPeli={findPeli} />} />
 
         </Routes>
 
