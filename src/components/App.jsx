@@ -54,12 +54,12 @@ const filteredMovies = peliculas.filter(pelicula =>
 
   //HOOK
   useEffect(() => {
-    fetch(`https://owen-wilson-wow-api.onrender.com/wows/random?results=50${filterMovie}`)
+    fetch(`https://owen-wilson-wow-api.onrender.com/wows/random?results=50`)
       .then(response => response.json())
       .then(dataJson => {
         setPeliculas(dataJson);
   }); 
-},[filterMovie]);
+},[]);
 
   return (
     <div>
