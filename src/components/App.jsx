@@ -49,11 +49,11 @@ const findPeli= (movie, timestamp)=>{
 
 const filteredMovies = peliculas.filter(pelicula =>
   pelicula.movie.toLowerCase().includes(filterMovie.toLowerCase()) &&
-  (filteryear === '' || pelicula.year.toString() === filteryear)
+  (filteryear === '' || pelicula.year.toString() === filteryear) 
 );
 
-  //HOOK
-  useEffect(() => {
+//HOOK
+useEffect(() => {
     fetch(`https://owen-wilson-wow-api.onrender.com/wows/random?results=50${filterMovie,filteryear}`)
       .then(response => response.json())
       .then(dataJson => {
